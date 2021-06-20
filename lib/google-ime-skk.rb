@@ -17,8 +17,7 @@ class GoogleImeSkk < SocialSKK
 
   def encode_to_eucjp(text)
     if String.new.respond_to?(:encode)
-      options = {:invaild => :replace, :replace => '?'}
-      text.encode('euc-jp', 'utf-8', **options)
+      text.encode('euc-jp', 'utf-8', **{:invaild => :replace, :replace => '?'})
     else
       require 'kconv'
       Kconv.toeuc(text)
